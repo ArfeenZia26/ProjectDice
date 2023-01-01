@@ -1,0 +1,118 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+.banner-user {
+    width: 100%;
+    height: 100px;
+    padding: 60px 0;
+    text-align: center;
+    background: #224a7f;
+    color: white;
+}
+.button {
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1.15px;
+    background-color: #4B70E2;
+    color: #f9f9f9;
+    box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #f9f9f9;
+    border: none;
+    outline: none;
+}
+.box-shadow {
+    padding-top: 20px;
+    box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 5%);
+    padding: 10px 10px 10px 10px;
+}
+.box-error {
+    background: radial-gradient(red, transparent);
+}
+.hidden {
+    display:none;
+}
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-header{
+    display: inline;
+}
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    border-radius: 5%;
+}
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+.die-header {
+    background-color: #224a7f;
+    color: #f9f9f9;
+    padding: 10px 10px 10px 10px;
+}
+.die-header p{
+    color: #f9f9f9;
+    font-weight: 500;
+}
+.box-dice{
+    background-color: #98bf64;
+}
+.box-dice p{
+    color : white;
+    padding-bottom: 35px;
+    padding-top: 15px;
+}
+#div-dice .row {
+    margin: 0;
+}
+#div-dice input {
+    height: 75px;
+    width: 75px;
+    text-align: center;
+    padding: 15px 15px 15px 15px;
+}

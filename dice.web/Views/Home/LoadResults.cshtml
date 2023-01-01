@@ -1,0 +1,81 @@
+﻿@model dice.web.Models.ViewModel
+@{
+    Layout = null;
+    var dices = Model.Dice;
+    int i = 0;
+    var barDice1 = Model.Dice.GroupBy(d => d.Dice1.Face).Select(x => new { Face = x.Key, Count = x.Count() }).OrderBy(o => o.Face);
+    var barDice2 = Model.Dice.GroupBy(d => d.Dice2.Face).Select(x => new { Face = x.Key, Count = x.Count() }).OrderBy(o => o.Face);
+    var total = Model.Dice.GroupBy(d => d.Total).Select(x => new { Face = x.Key, Count = x.Count() }).OrderBy(o => o.Face);
+}
+<div class="row box-shadow">
+    <div class="col-12">
+        <canvas id="bar-graph-one" width="600" height="150" style="display: block;" class="chartjs-render-monitor"></canvas>
+    </div>
+    <div class="col-12">
+        <canvas id="bar-graph-two" width="600" height="150" style="display: block;" class="chartjs-render-monitor"></canvas>
+    </div>
+    <div class="col-12">
+        <canvas id="bar-graph-total" width="600" height="150" style="display: block;" class="chartjs-render-monitor"></canvas>
+    </div>
+</div>
+<table class="table  table-dark">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Dice 1</th>
+        <th scope="col">Dice 2</th>
+        <th scope="col">Total</th>
+    </tr>
+    @foreach (var item in dices)
+    {
+        i++;
+        var dice1 = $"img/{item.Dice1.Face}.jpg";
+        var dice2 = $"img/{item.Dice2.Face}.jpg";
+            <tr>
+                <th scope="row">@i</th>
+                <td><img src="@dice1" alt="@dice1" height="25" width="25" /></td>
+                <td><img src="@dice2" alt="@dice2" height="25" width="25" /></td>
+                <td>@item.Total</td>
+            </tr>
+    }
+</table>
+<script type="text/javascript">
+    var barColor = ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#ffcc00", "#ff6600", "#cc00ff", "#99cc00", "#6e95cd", "#4e5ea2", "#1cba9f"];
+    //DICE ONE
+    LoadChart('bar-graph-one', @Html.Raw(Json.Serialize(barDice1)), 'DICE 1');
+    //DICE TWO
+    LoadChart('bar-graph-two', @Html.Raw(Json.Serialize(barDice2)), 'DICE 2');
+    //TOTAL
+    LoadChart('bar-graph-total', @Html.Raw(Json.Serialize(total)), 'TOTAL');
+    function LoadChart(id, bardata, lblText) {
+        ctx = document.getElementById(id).getContext('2d');
+        var barLabel = [];
+        var barData = [];
+        var bkColor = [];
+        //var bardata = JSON.parse('@Html.Raw(Json.Serialize(barDice1))');
+        var k = 0;
+        $.each(bardata, function (index, item) {
+            barLabel.push(item.face);
+            barData.push(item.count);
+            bkColor.push(barColor[k]);
+            k++;
+        });
+        myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: barLabel,
+                datasets: [{
+                    label: '',
+                    backgroundColor: bkColor,
+                    data: barData
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: lblText
+                }
+            }
+        });
+    }
+    
+</script>

@@ -1,0 +1,96 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="box-shadow">
+    <h3>Welcome</h3>
+    <p><b>To Rolling the dice</b></p>
+</div>
+<div class="row box-shadow" id="div-dice">
+    <div class="col-1"></div>
+    <div class="col-5 box-shadow">
+        <div class="die-header">
+            <p>DIE 1</p>
+            <p>Select the face of the Die and it's' Favor factor </p>
+        </div>
+        <div class="row">
+            <div class="col-7">
+                <div style="padding-top: 15px;">
+                    <p><b>Set Die Face Value</b></p>
+                    <input type="text" class="validDice" id="dice-one-face-value" maxlength="1" />
+
+                </div>
+                <div style="padding-top: 15px;">
+                    <p><b>Set Face Factor</b></p>
+                    <input type="text" class="validFactor" id="dice-one-face-factor" maxlength="1" />
+
+                </div>
+            </div>
+            <div class="col-5 box-dice">
+                <p>Dice can take a value of<br /> 1 - 6</p>
+                <p>Factor can take a value of<br /> 1 - 5</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-5 box-shadow">
+        <div class="die-header">
+            <p>DIE 2</p>
+            <p>Select the face of the Die and it's' Favor factor </p>
+        </div>
+        <div class="row">
+            <div class="col-7">
+                <div style="padding-top: 15px;">
+                    <p><b>Set Die Face Value</b></p>
+                    <input type="text" class="validDice" id="dice-two-face-value" maxlength="1" />
+                    
+                </div>
+                <div style="padding-top: 15px;">
+                    <p><b>Set Face Factor</b></p>
+                    <input type="text" class="validFactor" id="dice-two-face-factor" maxlength="1" />
+                    
+                </div>
+            </div>
+            <div class="col-5 box-dice">
+                <p>Dice can take a value of<br /> 1 - 6</p>
+                <p>Factor can take a value of<br /> 1 - 5</p>
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-1"></div>
+</div>
+<div class="row box-shadow">
+    <div class="col-1"></div>
+    <div class="col-5" style="margin: 10px 10px 10px 10px;">
+        <span>No. of times to Roll the Dice</span>
+        <input type="text" class="validInteger" id="roll-the-dice-times" style="padding: 10px 10px 10px 10px; margin: 0 10px 0 10px; font-weight:600;" />
+    </div>
+    <div class="col-2" >
+        <input type="button" class="button" id="roll-the-dice" value="Roll the Dice" />
+    </div>
+    <div class="col-1"></div>
+</div>
+<div class="row box-shadow box-error hidden" id="div-error">
+    <p>Enter the Number of times the Dice has to be rolled.</p>
+</div>
+<div class="row" style="margin: 15px 5px 5px 15px;">
+    <div class="col-12 box-shadow" id="display-result"></div>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="modal-search">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <img src="img/processing.gif" style="width: 50px; height: 50px" /> <span>Loading, Please Wait.....</span>
+            </div>
+
+        </div>
+    </div>
+</div>
